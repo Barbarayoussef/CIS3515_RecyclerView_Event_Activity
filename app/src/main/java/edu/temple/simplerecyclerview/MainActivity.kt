@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.TextView
 import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 
 class MainActivity : AppCompatActivity() {
@@ -15,9 +16,12 @@ class MainActivity : AppCompatActivity() {
         val numbers = Array(100) {it + 1}
         val recyclerView = findViewById<RecyclerView>(R.id.recyclerView)
         val displayTextView = findViewById<TextView>(R.id.displayTextView)
-        recyclerView.layoutManager = GridLayoutManager(this, 4)
+        recyclerView.layoutManager = LinearLayoutManager(this)
 
         // TODO (Step 2: Define lambda to modify displayTextView size)
+        val callback= {fontSize:Float -> displayTextView.textSize = fontSize}
+
+
 
         // Todo (Step 3: Pass lambda to adapter)
         recyclerView.adapter = NumberDisplayAdapter(numbers)
